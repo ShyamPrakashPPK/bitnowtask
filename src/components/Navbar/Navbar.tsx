@@ -51,19 +51,6 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="sm:hidden absolute top-16 right-0 bg-white w-48 shadow-lg py-2 rounded-lg">
-                    {navItems.map((item, index) => (
-                        <Link key={index} href={item.link} passHref legacyBehavior>
-                            <a className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{item.name}</a>
-                        </Link>
-                    ))}
-                    <Link href="/getstarted" passHref legacyBehavior>
-                        <a className="block px-4 py-2 bg-blue-500 text-white rounded-lg mt-2 text-center">Get Started</a>
-                    </Link>
-                </div>
-            )}
         </nav>
     );
 };

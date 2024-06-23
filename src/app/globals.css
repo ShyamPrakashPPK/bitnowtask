@@ -47,6 +47,22 @@ body{
   /* Ensure the background stays behind other content */
 }
 
+.footer-background::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-image: url('../../public/images/image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  transform-origin: center;
+  z-index: -1;
+}
+
+
 @media (max-width: 768px) {
   .section2-background {
     background-size: cover;

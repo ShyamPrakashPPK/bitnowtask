@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Poppins ,Monomaniac_One } from "next/font/google";
+import { Poppins, Monomaniac_One } from "next/font/google";
 import "./globals.css";
 
-export const font2 = Monomaniac_One({ 
-  subsets: ["latin"],
-  weight:["400"]
- })
-
-const font = Poppins({ subsets: ["latin"], weight: ["100" , "300" , "400" ,"600"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["100", "300", "400", "600"] });
+const monomaniacOne = Monomaniac_One({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={`${poppins.className} ${monomaniacOne}`}>
+        {children}
+      </body>
     </html>
   );
 }

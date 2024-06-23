@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 interface WordRotateProps {
     words: string[];
     duration?: number;
-    framerProps?: HTMLMotionProps<"h1">;
+    framerProps?: HTMLMotionProps<"span">;
     className?: string;
 }
 
 export default function WordRotate({
     words,
-    duration = 2500,
+    duration = 1500,
     framerProps = {
         initial: { opacity: 0, y: -50 },
         animate: { opacity: 1, y: 0 },
@@ -40,7 +40,8 @@ export default function WordRotate({
                     key={words[index]}
                     className={cn(className)}
                     {...framerProps}
-                >
+                >                   
+
                     {words[index]}
                 </motion.h1>
             </AnimatePresence>
