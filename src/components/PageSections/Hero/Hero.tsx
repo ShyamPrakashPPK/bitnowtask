@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import herobg from '../../../public/images/hero.jpeg';
+import herobg from '../../../../public/images/hero.jpeg';
 
 const Hero = () => {
     return (
         <div className='relative h-screen w-full'>
-            <div className='hero-gradient opacity-40'></div>
+            <div className='hero-gradient opacity-60'></div>
             <Image
                 src={herobg}
                 alt='Hero Background'

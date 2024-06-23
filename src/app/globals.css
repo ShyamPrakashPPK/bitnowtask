@@ -2,32 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
---foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
 
-/* styles/globals.css */
 .hero-gradient {
   background: linear-gradient(to bottom,
       rgba(9, 29, 34, 1) 0%,
@@ -39,4 +15,65 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+body{
+  background-color: #0a2129;
+}
+
+.section2-background {
+  background-image: url('../../public/images/image.png');
+  background-size: 80vh;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.section3-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.section3-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/images/image.png');
+  background-size: 80vh;
+  background-repeat: no-repeat;
+  background-position: left;
+  transform: rotate(180deg);
+  transform-origin: center;
+  z-index: -1;
+  /* Ensure the background stays behind other content */
+}
+
+@media (max-width: 768px) {
+  .section2-background {
+    background-size: cover;
+    background-position: center;
+  }
+
+ 
+}
+
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll 40s forwards linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
 }

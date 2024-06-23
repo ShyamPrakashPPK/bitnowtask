@@ -14,7 +14,7 @@ const navItems = [
 
 const Navbar = () => {
     return (
-        <div className='absolute top-0 left-0 w-full flex flex-row justify-between items-center px-10 py-10 bg-transparent'>
+        <div className='absolute top-0 left-0 w-full flex flex-row justify-between items-center px-10 py-10 bg-transparent text-white'>
             <div className="flex flex-row items-center gap-3 text-3xl">
                 <Image className='p-2' src={logo} alt='logo' />
                 BitNow

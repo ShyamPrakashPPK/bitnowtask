@@ -1,14 +1,18 @@
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/components/PageSections/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
+import Section2 from "@/components/PageSections/Section2/page";
+import Footer from "@/components/Footbar/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="">
       <Navbar />
-      <Hero />
-      <div className="h-[100vh]"></div>
-      <div className="h-[100vh]"></div>
-      <div></div>
+      <div>
+        <Hero />
+        <Section2 />
+      </div>
+  
+      <Footer/>
     </main>
   );
 }
