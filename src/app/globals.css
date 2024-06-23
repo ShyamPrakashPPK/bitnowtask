@@ -74,3 +74,66 @@ body{
     transform: translateX(calc(-50% - 0.5rem));
   }
 }
+
+
+@keyframes slide1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(100px, 100px);
+    /* Bottom right */
+  }
+
+  50% {
+    transform: translate(100px, -100px);
+    /* Top right */
+  }
+
+  75% {
+    transform: translate(-100px, -100px);
+    /* Left */
+  }
+}
+
+@keyframes slide2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(0, -100px);
+    /* Top */
+  }
+
+  50% {
+    transform: translate(-100px, 100px);
+    /* Bottom left */
+  }
+
+  75% {
+    transform: translate(100px, 0);
+    /* Right */
+  }
+}
+.arrows {
+  animation-duration: 8s;
+  /* Adjust duration as needed */
+  animation-iteration-count: infinite;
+}
+
+.arrow1 {
+  animation-name: slide1;
+  animation-delay: 0s;
+}
+
+.arrow2 {
+  animation-name: slide2;
+  animation-delay: 4s;
+  /* Delay half the duration of slide1 */
+}

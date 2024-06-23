@@ -19,10 +19,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, content }) => {
             <button
                 className="w-full flex  p-4 py-8 text-left"
                 onClick={toggleAccordion}
-            >     <span className="text-lg pr-8 font-bold">
+            >     <span className="text-lg pr-3 md:pr-8 font-bold">
                     {isOpen ? '-' : '+'}
                 </span>
-                <span className="text-lg font-bold">{title}</span>
+                <span className="text-sm md:text-lg font-bold">{title}</span>
            
             </button>
             {isOpen && (

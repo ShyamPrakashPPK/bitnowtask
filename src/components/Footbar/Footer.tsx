@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import logo from '../../../public/images/logo.png'
 import arrow from '../../../public/images/chevron-right.svg'
+import socials from '../../../public/images/socials.png'
+
 interface FooterData {
     logoSrc: any;
     otherPages: string[];
@@ -29,13 +31,19 @@ const Footer = () => {
 
 
                     {/* Logo and About Section */}
-                    <div className='flex flex-col'>
-                        <div className='flex items-center'>
-                            <Image src={logoSrc} alt='logo' width={50} height={50} />
-                            <h3 className='text-xl font-mono font-extrabold ml-2'>Bitwise</h3>
+                    <div className='flex flex-col justify-between'>
+                        <div className='flex flex-col '>
+                            <div className='flex flex-row items-center'>
+                                <Image src={logoSrc} alt='logo' width={50} height={50} />
+                                <h3 className=' text-2xl font-mono font-extrabold ml-2'>Bitwise</h3>
+                            </div>
+                    
+                            <p className='mt-4'>Lorem Ipsum, jhdjnfnj htiuijnerc</p>
+
                         </div>
-                        <p className='mt-4'>Lorem Ipsum, jhdjnfnj htiuijnerc</p>
-                        <div className='mt-4'>Social links here</div>
+                        <div className='mt-4 '>
+                            <Image src={socials} className='w-min h-15' alt='' width={1000} height={1000} />
+                        </div>
                     </div>
 
                     {/* Other Pages and Quick Links */}
