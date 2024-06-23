@@ -1,5 +1,7 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import logo from '../../../public/images/logo.png';
+import menu from '../../../public/images/menu.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,23 +15,56 @@ const navItems = [
 ];
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className='absolute top-0 left-0 w-full flex flex-row justify-between items-center px-10 py-10 bg-transparent text-white'>
-            <div className="flex flex-row items-center gap-3 text-3xl">
-                <Image className='p-2' src={logo} alt='logo' />
-                BitNow
+        <nav className='absolute top-0 left-0 w-full flex flex-row justify-between items-center px-6 lg:px-20 sm:px-6 py-4 bg-transparent text-white'>
+            {/* Logo and Menu Icon for Mobile */}
+            <div className="flex items-center">
+                <Image src={logo} alt='logo' width={40} height={40} />
+                <span className="ml-2 text-xl font-black">BitNow</span>
             </div>
-            <div className="flex flex-row items-center gap-5">
+
+            {/* Menu Links */}
+            <div className="hidden sm:flex flex-row items-center gap-1 lg:gap-8">
                 {navItems.map((item, index) => (
-                    <Link key={index} href={item.link} legacyBehavior>
-                        <a className={`text-xl ${item.name === 'Home' ? 'text-blue-500' : ''}`}>{item.name}</a>
+                    <Link key={index} href={item.link} passHref legacyBehavior>
+                        <a className={` lg:text-lg ${item.name === 'Home' ? 'text-blue-500' : ''}`}>{item.name}</a>
                     </Link>
                 ))}
-                <Link href="/getstarted" legacyBehavior>
-                    <a className="text-xl bg-blue-500 text-white px-4 py-2 rounded">Get Started</a>
+                <Link href="/getstarted" passHref legacyBehavior>
+                    <a className="text-xl bg-blue-500 text-white lg:px-4 p-1 lg:py-2 rounded">Get Started</a>
                 </Link>
             </div>
-        </div>
+
+            {/* Mobile Menu Icon */}
+            <div className="sm:hidden">
+                <button
+                    onClick={toggleMenu}
+                    className="text-white focus:outline-none"
+                >
+                 <Image src={menu} alt=''/>
+                </button>
+            </div>
+
+            {/* Mobile Menu */}
+            {isOpen && (
+                <div className="sm:hidden absolute top-16 right-0 bg-white w-48 shadow-lg py-2 rounded-lg">
+                    {navItems.map((item, index) => (
+                        <Link key={index} href={item.link} passHref legacyBehavior>
+                            <a className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{item.name}</a>
+                        </Link>
+                    ))}
+                    <Link href="/getstarted" passHref legacyBehavior>
+                        <a className="block px-4 py-2 bg-blue-500 text-white rounded-lg mt-2 text-center">Get Started</a>
+                    </Link>
+                </div>
+            )}
+        </nav>
     );
 };
 
